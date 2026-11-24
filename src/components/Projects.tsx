@@ -1,26 +1,40 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Layers, Code } from 'lucide-react';
+import { Layers, CheckCircle2 } from 'lucide-react';
 
 const projects = [
   {
-    title: 'HRMS System',
-    description: 'A comprehensive Human Resource Management System designed for modern enterprises. Features include automated attendance tracking via biometric/IP logs, dynamic shift scheduling, leave management with multi-level approval workflows, and detailed employee performance analytics dashboards.',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Redux'],
-    image: 'https://picsum.photos/seed/hrms/800/600',
+    title: 'Hospital Management Information System (HMIS)',
+    category: 'Healthcare & Mobile',
+    description: 'Comprehensive healthcare system managing hospital operations and clinical care workflows. Built OPD, IPD, doctor queue tracking, screening, digital prescriptions, PDF downloads, and real-time push notifications via FCM.',
+    tech: ['React.js', 'React Native', 'TypeScript', 'Node.js', 'MySQL', 'FCM'],
+    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80',
+    highlights: ['Doctor queue management', 'FCM push notifications', 'Prescription PDF generation'],
   },
   {
-    title: 'Academic & Student Management',
-    description: 'A robust platform for educational institutions to manage the entire student lifecycle. Includes modules for student registration, automated result generation, fee management with payment gateway integration, and administrative dashboards for real-time reporting and data visualization.',
-    tech: ['React', 'Node.js', 'MySQL', 'Sequelize', 'Chart.js'],
-    image: 'https://picsum.photos/seed/academic/800/600',
+    title: 'OTA Update Management System',
+    category: 'DevOps & Mobile Infrastructure',
+    description: 'Over-the-Air update infrastructure and CLI workflow for rolling out live bundle hotfixes to React Native applications. Features device registration, approval pipelines, and mandatory update enforcement.',
+    tech: ['Node.js', 'TypeScript', 'Hono', 'MySQL', 'Cloudflare R2', 'AWS S3'],
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    highlights: ['Zero-friction app hotfixes', 'Device approval flows', 'Version release tracking'],
   },
   {
-    title: 'E-commerce Web Application',
-    description: 'A feature-rich e-commerce platform with a focus on user experience and security. Implements secure JWT-based authentication, a dynamic cart system with persistent storage, integrated search and filtering, and a comprehensive admin panel for product and order management.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'Cloudinary'],
-    image: 'https://picsum.photos/seed/ecommerce/800/600',
+    title: 'Doctor Consultation Application',
+    category: 'Telemedicine & Real-time Video',
+    description: 'Cross-platform mobile application facilitating seamless online doctor-patient consultations. Integrates real-time audio/video consultations via ZegoCloud, appointment queue management, and digital prescriptions.',
+    tech: ['React Native', 'TypeScript', 'ZegoCloud', 'REST APIs', 'Tailwind'],
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+    highlights: ['ZegoCloud video integration', 'Real-time patient queues', 'Cross-platform UI'],
+  },
+  {
+    title: 'Enterprise HRMS Platform',
+    category: 'Enterprise Web Application',
+    description: 'Full-stack Human Resource Management System to streamline employee lifecycle operations. Includes biometric attendance tracking, leave approval workflows, and administrative analytics dashboards with RBAC.',
+    tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+    highlights: ['Role-based access control', 'Automated attendance logs', 'Analytics dashboards'],
   },
 ];
 
@@ -31,68 +45,72 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="section-padding bg-white dark:bg-black">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+    <section id="projects" ref={ref} className="py-7 md:py-9 bg-white dark:bg-[#07090e] border-t border-slate-200/80 dark:border-white/5 relative scroll-mt-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-5">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            className="inline-block px-4 py-1.5 rounded-full bg-gold-50 dark:bg-gold-950/30 text-gold-700 dark:text-gold-400 text-xs font-bold uppercase tracking-widest mb-4 border border-gold-200/50 dark:border-gold-500/20"
+            className="inline-block px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-2 border border-indigo-200/60 dark:border-indigo-500/20"
           >
             Portfolio
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold text-zinc-900 dark:text-white"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white"
           >
-            Featured <span className="text-gold-500">Creations.</span>
+            Featured <span className="text-gradient">Projects.</span>
           </motion.h2>
         </div>
 
-        <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-5">
           {projects.map((project, idx) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: idx * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group glass rounded-[2.5rem] overflow-hidden flex flex-col h-full border-gold-500/10 hover:border-gold-500/40 transition-all duration-500"
+              transition={{ delay: idx * 0.08 }}
+              className="glass-card rounded-2xl overflow-hidden flex flex-col group"
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-44 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4 backdrop-blur-sm">
-                  <button className="p-4 bg-white rounded-full text-zinc-900 hover:bg-gold-500 hover:text-white transition-all hover:scale-110">
-                    <Github size={20} />
-                  </button>
-                  <button className="p-4 bg-white rounded-full text-zinc-900 hover:bg-gold-500 hover:text-white transition-all hover:scale-110">
-                    <ExternalLink size={20} />
-                  </button>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />
+                <div className="absolute top-3 left-3">
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-indigo-600/90 text-white backdrop-blur-md">
+                    {project.category}
+                  </span>
                 </div>
               </div>
-              <div className="p-10 flex flex-col flex-grow">
-                <div className="flex items-center gap-2 mb-4">
-                  <Code size={16} className="text-gold-500" />
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400">Web Application</span>
-                </div>
-                <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-gold-500 transition-colors">
+
+              <div className="p-5 sm:p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-cyan-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-zinc-500 dark:text-zinc-400 text-sm mb-8 leading-relaxed line-clamp-4">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
                   {project.description}
                 </p>
-                <div className="mt-auto flex flex-wrap gap-2">
+
+                <div className="space-y-1.5 mb-5 mt-auto">
+                  {project.highlights.map((h, i) => (
+                    <div key={i} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+                      <CheckCircle2 size={12} className="text-cyan-500 shrink-0" />
+                      <span>{h}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100 dark:border-slate-800">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-3 py-1 bg-gold-500/5 dark:bg-gold-500/10 text-gold-600 dark:text-gold-400 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-gold-500/10"
+                      className="px-2 py-0.5 bg-slate-100 dark:bg-[#121829] text-indigo-600 dark:text-cyan-400 text-[10px] font-semibold rounded border border-slate-200 dark:border-indigo-500/20"
                     >
                       {t}
                     </span>

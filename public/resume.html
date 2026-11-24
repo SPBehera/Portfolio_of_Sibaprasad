@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siba Prasad Behera - Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --primary: #0f172a;
+      --accent: #4f46e5;
+      --accent-dark: #3730a3;
+      --accent-light: #eef2ff;
+      --text: #1e293b;
+      --muted: #475569;
+      --light-border: #e2e8f0;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background-color: #f8fafc;
+      line-height: 1.45;
+      font-size: 13px;
+    }
+
+    .no-print-bar {
+      background: #0f172a;
+      color: white;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+      color: white;
+      border: none;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      background: #1e293b;
+      border: 1px solid #334155;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+    }
+
+    .resume-container {
+      max-width: 820px;
+      margin: 20px auto;
+      background: white;
+      padding: 36px 44px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+
+    header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--primary);
+      text-transform: uppercase;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact-info a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      border-bottom: 1px solid var(--light-border);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+
+    .summary-text {
+      color: var(--muted);
+      text-align: justify;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      row-gap: 5px;
+      column-gap: 10px;
+      font-size: 12px;
+    }
+
+    .skill-cat {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .skill-list {
+      color: var(--muted);
+    }
+
+    .entry {
+      margin-bottom: 10px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .role-title {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--primary);
+    }
+
+    .company-name {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .entry-date {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    ul.bullets {
+      list-style-type: disc;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    ul.bullets li {
+      margin-bottom: 2.5px;
+      line-height: 1.38;
+    }
+
+    ul.bullets li strong {
+      color: var(--text);
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      .no-print-bar {
+        display: none !important;
+      }
+      .resume-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="no-print-bar">
+    <div>
+      <strong>Siba Prasad Behera</strong> — Full Stack & React Native Developer
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <a href="/" class="btn btn-secondary">← Back to Portfolio</a>
+      <button class="btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <div class="resume-container">
+    <header>
+      <h1>Siba Prasad Behera</h1>
+      <div class="title">Full Stack Developer | MERN Stack & React Native</div>
+      <div class="contact-info">
+        <span>📍 Bhubaneswar, Odisha, India</span>
+        <span>📞 +91 8260139338</span>
+        <span>✉️ <a href="mailto:sibaprasadbehera281@gmail.com">sibaprasadbehera281@gmail.com</a></span>
+        <span>🔗 <a href="https://linkedin.com/in/siba-pb" target="_blank">linkedin.com/in/siba-pb</a></span>
+        <span>💻 <a href="https://github.com/SPBehera" target="_blank">github.com/SPBehera</a></span>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-title">Professional Summary</div>
+      <p class="summary-text">
+        Full Stack Developer with hands-on experience developing scalable web and mobile applications using <strong>React.js, React Native, Node.js, Express.js, TypeScript, MongoDB, and MySQL</strong>. Proven expertise building production healthcare management systems (HMIS), Over-the-Air (OTA) update infrastructure, and real-time doctor consultation apps. Adept at RESTful API architecture, role-based access control (RBAC), mobile push notifications (FCM), video streaming (ZegoCloud), and production issue resolution.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div class="skill-cat">Frontend:</div>
+        <div class="skill-list">React.js, React Native, Next.js, TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Bootstrap</div>
+
+        <div class="skill-cat">Backend:</div>
+        <div class="skill-list">Node.js, Express.js, TypeScript, Hono.js, RESTful API Development, JWT Authentication, RBAC</div>
+
+        <div class="skill-cat">Databases:</div>
+        <div class="skill-list">MongoDB, MySQL, SQL</div>
+
+        <div class="skill-cat">Mobile Dev:</div>
+        <div class="skill-list">React Native CLI, React Navigation, Firebase Cloud Messaging (FCM), ZegoCloud, OTA Updates</div>
+
+        <div class="skill-cat">AI & Productivity:</div>
+        <div class="skill-list">AI-Assisted Software Development, Prompt Engineering, AI-Powered Code Generation, AI-Based Debugging, AI-Assisted Testing, Generative AI Fundamentals, AI API Integration, GitHub Copilot, ChatGPT, Google Gemini</div>
+
+        <div class="skill-cat">Tools & Platforms:</div>
+        <div class="skill-list">Git, GitHub, GitLab, Postman, Docker, Vite, npm, Cloudflare R2 / AWS S3</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Work Experience</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div><span class="role-title">Full Stack Developer</span> • <span class="company-name">Angikya Software & Technologies Limited</span></div>
+          <span class="entry-date">March 2025 – Present | Bhubaneswar, India</span>
+        </div>
+        <ul class="bullets">
+          <li>Architect and develop <strong>Hospital Management Information System (HMIS)</strong> modules covering OPD, IPD, doctor queues, consultation, prescription, and patient self-service workflows.</li>
+          <li>Build cross-platform mobile features in <strong>React Native</strong> & <strong>TypeScript</strong> including queue updates via <strong>Firebase Cloud Messaging (FCM)</strong> and video consultation using <strong>ZegoCloud</strong>.</li>
+          <li>Engineered <strong>Over-the-Air (OTA) update infrastructure</strong> using Node.js, TypeScript, Hono, MySQL, and cloud storage for automated, zero-friction mobile hotfixes.</li>
+          <li>Implement device registration, approval pipelines, and version tracking for secure mobile distribution.</li>
+          <li>Design and maintain performant RESTful APIs with RBAC authentication and optimized MySQL/MongoDB database queries.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div><span class="role-title">Full Stack Developer Intern</span> • <span class="company-name">Juvenilia Technology</span></div>
+          <span class="entry-date">November 2023 – September 2024 | Bhubaneswar, India</span>
+        </div>
+        <ul class="bullets">
+          <li>Developed full-stack web applications using <strong>React.js, Node.js, Express.js, and MongoDB</strong>.</li>
+          <li>Built reusable, modular UI components and integrated RESTful backend APIs for data handling and business logic.</li>
+          <li>Implemented JWT-based authentication, user role management, and database operations.</li>
+          <li>Collaborated closely with QA and UI teams for cross-browser testing, debugging, and production feature releases.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div><span class="role-title">Java Developer Intern</span> • <span class="company-name">Odisha Computer Application Centre (OCAC)</span></div>
+          <span class="entry-date">September 2023 – October 2023 | Bhubaneswar, India</span>
+        </div>
+        <ul class="bullets">
+          <li>Completed hands-on software development internship focused on Core Java, OOP principles, and application logic.</li>
+          <li>Practiced software debugging, code refactoring, and Git version control workflows.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Key Projects</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div><span class="role-title">Hospital Management Information System (HMIS)</span></div>
+          <span class="entry-date">React.js, React Native, TypeScript, Node.js, MySQL, FCM</span>
+        </div>
+        <ul class="bullets">
+          <li>Developed end-to-end healthcare workflows across OPD, IPD, doctor queue tracking, screening, and digital prescriptions.</li>
+          <li>Integrated FCM push notifications for real-time patient queue updates and built PDF prescription download services.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div><span class="role-title">OTA Update Management System</span></div>
+          <span class="entry-date">Node.js, TypeScript, Hono, MySQL, Cloudflare R2 / AWS S3</span>
+        </div>
+        <ul class="bullets">
+          <li>Developed an Over-the-Air bundle distribution backend and CLI workflow for delivering live React Native updates.</li>
+          <li>Built device registration, approval verification, and mandatory update enforcement.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div><span class="role-title">Doctor Consultation Application</span></div>
+          <span class="entry-date">React Native, TypeScript, ZegoCloud, REST APIs</span>
+        </div>
+        <ul class="bullets">
+          <li>Engineered mobile consultation features and real-time audio/video consultations powered by ZegoCloud SDK.</li>
+          <li>Integrated doctor schedule management, queue handling, and seamless mobile navigation.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div><span class="role-title">Enterprise HRMS Platform</span></div>
+          <span class="entry-date">React.js, Node.js, Express.js, MongoDB, REST APIs</span>
+        </div>
+        <ul class="bullets">
+          <li>Created employee records, attendance tracking, and admin dashboards with role-based access control.</li>
+          <li>Designed RESTful APIs and schema models ensuring data integrity and fast response times.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="grid-2col">
+      <section>
+        <div class="section-title">Education</div>
+        <div style="font-size: 11.5px;">
+          <div style="font-weight: 700; color: var(--primary);">B.Tech in Computer Science & Engineering</div>
+          <div style="color: var(--muted);">Gandhi Institute for Education & Technology (GIET)</div>
+          <div style="color: var(--accent-dark); font-weight: 600;">2021 – 2025 | CGPA: 8.3 / 10</div>
+          
+          <div style="font-weight: 700; color: var(--primary); margin-top: 5px;">Higher Secondary Education (Science)</div>
+          <div style="color: var(--muted);">Gayatri Science Higher Secondary School | 2019 – 2021</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">Achievements & Training</div>
+        <ul class="bullets" style="font-size: 11px;">
+          <li><strong>2nd Prize:</strong> Inter-College Coding Competition (2023)</li>
+          <li><strong>1st Prize:</strong> Intra-College Mathematics Olympiad (2024)</li>
+          <li><strong>Full Stack / MERN Training:</strong> QSpiders, Bhubaneswar</li>
+          <li><strong>Java Internship Certification:</strong> OCAC (2023)</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
